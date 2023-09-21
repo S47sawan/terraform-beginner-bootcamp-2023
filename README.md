@@ -48,5 +48,5 @@ drwxr-xr-x 2 gitpod gitpod   38 Sep 20 20:40 bin
 ``````
 For further reference click here : [How to change directory permissions in Linux with chmod](https://www.pluralsight.com/blog/it-ops/linux-file-permissions)
 
-A handy link for calculating chmod is here 
+This is handy for calculating chmod:
 [Chmod Calculator](https://chmod-calculator.com/)
