@@ -106,7 +106,11 @@ You can also set en vars in the '.gitpod.yml' but this can only contain non-sens
 
 ## AWS CLI Installation ##
 
+[Environment variables to configure the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+
 AWS CLI is installed for the project via the bash script [`./bin/imstall_aws_cli.sh`](./bin/install_aws_cli.sh)
+
+Get the aws cli credentials from the console in AWS IAM.
 
 [Installing aws cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
@@ -122,6 +126,8 @@ If it is successful Json message shown below will be returned
     "Account": "872018198609",
     "Arn": "arn:aws:iam::872018198609:user/Smihah-Awan"
 }
+
+To unset the **ENV VARS** in the aws cli simply use the `unset` command followed by the variables.
 
 
 
