@@ -130,6 +130,7 @@ If it is successful Json message shown below will be returned
 To unset the **ENV VARS** in the aws cli simply use the `unset` command followed by the variables.
 
 ##  Terraform Basics  
+
 ### Terraform registry ###
 
 Terraform Registry is a centralized online repository provided by HashiCorp that serves as a hub for sharing, discovering, and accessing _Terraform modules and providers_. 
@@ -154,6 +155,8 @@ There are three main commands that are used to interact with terraform:
 - **Terraform plan** : _generates an execution plan_ that previews changes to infrastructure resources before applying them.
 - **Terraform apply** : _applies the changes defined_ in your Terraform configuration to create or modify infrastructure resources. To automate apply apend `-auto-approve` to 
    `Terraform apply` in your terminal.
+- **Terraform destroy** : This command is used to destroy resources in the AWS CONSOLE. 
+      :warning: If resources have been deployed in the AWS CONSOLE using terraform , **NEVER** delete them manually from the AWS CONSOLE, instead, run the `terraform destroy` command in the VScode/gitpod terminal.
 
 ### Terraform Lock Files ###
 
@@ -172,4 +175,5 @@ There are three main commands that are used to interact with terraform:
 ### Terraform Directories ###
 
 `.terraform` directory contains binaries of terraforn providers.
+
 
