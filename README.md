@@ -120,16 +120,16 @@ To check if AWS credentials is configured correctly run the command below in you
 ````
 If it is successful Json message shown below will be returned
 
-````
+````bash
 {
     "UserId": "AIDA4RM5RIMWRY6UEPQGY",
     "Account": "872018198609",
     "Arn": "arn:aws:iam::872018198609:user/Smihah-Awan"
 }
-
+````
 To unset the **ENV VARS** in the aws cli simply use the `unset` command followed by the variables.
 
-## :star: Terraform Basics :star: ## 
+##  Terraform Basics  
 ### Terraform registry ###
 
 Terraform Registry is a centralized online repository provided by HashiCorp that serves as a hub for sharing, discovering, and accessing _Terraform modules and providers_. 
@@ -161,16 +161,16 @@ There are three main commands that are used to interact with terraform:
 
  `.terraform.lock.hcl`  contains the locked versioning for the providers or modules that should be used with this project.
 
- The terraform Lock Fil should be committed to version control system r.g github
+ The terraform Lock Fil should be committed to version control system e.g github
 
-###Terraform state Files ###
+### Terraform State Files ###
  
- :warning: `terraform.tfstate`  file **should NOT** be commited to your github
+ :warning:  `terraform.tfstate`  file **should NOT** be commited to your github
+ 
  :warning: DO NOT lose this file you will lose your infrustrature
 
-`terraform.tfstate` keeps track of the changes implemeted to the Infrustracture by comparing the  **Desired state** (what you specified in your configuration) to the **current 
- state**(what is actually deployed in your cloud or infrastructure environment). 
+`terraform.tfstate` keeps track of the changes implemeted to the Infrustracture by comparing the  **Desired state** (what you specified in your configuration) to the **current state** (what is actually deployed in your cloud or infrastructure environment). 
 
-###Terraform Directories ###
+### Terraform Directories ###
 
 `.terraform` directory contains binaries of terraforn providers.
