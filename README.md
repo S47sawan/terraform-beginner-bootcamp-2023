@@ -142,8 +142,6 @@ It allows Terraform users to easily find and use _pre-built infrastructure code 
  :white_check_mark: Terraform Modules : these can be defined as reuseable templates that encapsulate related resources and configurations making it easier to manage and scale Iac projects.
   [registry.terraform.io] (https://registry.terraform.io/providers/hashicorp/random/latest/docs)
 
-
-
 ### Terraform Console ###
 
 Terraform console is an _interactive command-line tool_ provided by Terraform that allows users to
@@ -174,3 +172,4 @@ There are three main commands that are used to interact with terraform:
 ### Terraform Directories ###
 
 `.terraform` directory contains binaries of terraforn providers.
+
