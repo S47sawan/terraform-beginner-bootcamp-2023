@@ -129,8 +129,48 @@ If it is successful Json message shown below will be returned
 
 To unset the **ENV VARS** in the aws cli simply use the `unset` command followed by the variables.
 
+## :star: Terraform Basics :star: ## 
+### Terraform registry ###
+
+Terraform Registry is a centralized online repository provided by HashiCorp that serves as a hub for sharing, discovering, and accessing _Terraform modules and providers_. 
+
+It allows Terraform users to easily find and use _pre-built infrastructure code and resources_, **promoting code reusability** and **simplifying infrastructure management**.
+
+ :white_check_mark: Terraform providers : they are plugins that enable Terraform to interact with external services and APIs.
+  [Random Terraform Provider](https://registry.terraform.io/providers/hashicorp/random/latest)
+
+ :white_check_mark: Terraform Modules : these can be defined as reuseable templates that encapsulate related resources and configurations making it easier to manage and scale Iac projects.
+  [registry.terraform.io] (https://registry.terraform.io/providers/hashicorp/random/latest/docs)
 
 
 
+### Terraform Console ###
 
+Terraform console is an _interactive command-line tool_ provided by Terraform that allows users to
+- evaluate expressions
+- query information about resources 
+- experiment with the Terraform language
 
+There are three main commands that are used to interact with terraform:
+- **Terraform Init** : initializes a Terraform project by _downloading provider plugins_ and setting up the working directory for managing infrastructure as code.
+- **Terraform plan** : _generates an execution plan_ that previews changes to infrastructure resources before applying them.
+- **Terraform apply** : _applies the changes defined_ in your Terraform configuration to create or modify infrastructure resources. To automate apply apend `-auto-approve` to 
+   `Terraform apply` in your terminal.
+
+### Terraform Lock Files ###
+
+ `.terraform.lock.hcl`  contains the locked versioning for the providers or modules that should be used with this project.
+
+ The terraform Lock Fil should be committed to version control system r.g github
+
+###Terraform state Files ###
+ 
+ :warning: `terraform.tfstate`  file **should NOT** be commited to your github
+ :warning: DO NOT lose this file you will lose your infrustrature
+
+`terraform.tfstate` keeps track of the changes implemeted to the Infrustracture by comparing the  **Desired state** (what you specified in your configuration) to the **current 
+ state**(what is actually deployed in your cloud or infrastructure environment). 
+
+###Terraform Directories ###
+
+`.terraform` directory contains binaries of terraforn providers.
