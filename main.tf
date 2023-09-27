@@ -1,5 +1,12 @@
 #AWS Provider
 terraform {
+  cloud {
+    organization = "cloudgirl"
+
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
   required_providers {
     aws = {
       source = "hashicorp/aws"
