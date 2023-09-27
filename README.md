@@ -200,10 +200,10 @@ In this project rather than using s3 as the remote backend I have used [Terrafor
 
 :warning: should you encounter error whilsts entering the token into your terminal, create the ` touch /home/gitpod/.terraform.d/credentials.tfrc.json` folder.
           
-          Next `open /home/gitpod/.terraform.d/credentials.tfrc.json` and check that toekn is set here. 
+          Next  `open /home/gitpod/.terraform.d/credentials.tfrc.json` and check that toekn is set here. 
 
           ````json
-                        {
+            {
               "credentials": {
                 "app.terraform.io": {
                   "token": "your-terraform-cloud-token" # replace this with your token generate by terraform cloud
