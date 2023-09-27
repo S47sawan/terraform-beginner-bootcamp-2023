@@ -176,4 +176,41 @@ There are three main commands that are used to interact with terraform:
 
 `.terraform` directory contains binaries of terraforn providers.
 
+## Terraform Cloud as the remote backend for statefile ##
+
+In this project rather than using s3 as the remote backend I have used [Terraform Cloud](https://developer.hashicorp.com/terraform/cloud-docs).
+
+- Implement the code below in the main.tf file to set the backend
+
+````json
+  cloud {
+      organization = "cloudgirl"
+
+      workspaces {
+        name = "terra-house-1"
+      
+      }
+    }
+````
+- Next run `terraform login` in the terminal
+
+- You will be prompted for a token which you enter into the terminal. 
+
+- After successful login, run `terraform init` to initial terrform cloud as your remote backend.
+
+:warning: should you encounter error whilsts entering the token into your terminal, create the ` touch /home/gitpod/.terraform.d/credentials.tfrc.json` folder.
+          
+          Next `open /home/gitpod/.terraform.d/credentials.tfrc.json` and check that toekn is set here. 
+
+          ````json
+                        {
+              "credentials": {
+                "app.terraform.io": {
+                  "token": "your-terraform-cloud-token" # replace this with your token generate by terraform cloud
+                }
+              }
+            }
+          ````
+ 
+
 
