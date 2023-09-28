@@ -212,5 +212,27 @@ In this project rather than using s3 as the remote backend I have used [Terrafor
             }
           ````
  
+## Adding alias to bash profile ##
 
+Rather than having to type the full word "terraform" into the terminal, we can use alias for terraform `alias tf=terraform` in the ~/.bash_profile. In the terminal 
 
+step 1: run `open ~/.bash_profile` in our bash terminal
+
+step 2: This will open a bash file to which at the end apend or add `alias tf=terraform`. Save the file.
+
+step 3: Reload the bash for the changes to take effect `source ~/.bash_profile`
+
+step 4: type `tf` in your terminal to check that changes have been apply and your ready to go!!
+
+### Automate set_tf using bash script ##
+
+step 1: Automate the process by creating a bash-script. As each time you reload your workspace in gitpod, the alias will be set 
+        via the .gitpod.yml file.
+
+step 2: Using chatgpt generate a bash file that will set the alias in the bash_profile.
+
+step 3: To check the bash script run it in the terminal but **📝do not forget to change permissions on bashscript before running**
+
+step 4 : `chmod u+x set_tf_alias`
+
+step 5 : after changing permission run the file in the terminal. :tada: your tf alias is now set!!
