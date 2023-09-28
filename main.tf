@@ -1,5 +1,12 @@
 #AWS Provider
 terraform {
+  cloud {
+    organization = "cloudgirl"
+
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
   required_providers {
     aws = {
       source = "hashicorp/aws"
@@ -17,6 +24,7 @@ provider "random" {
 provider "aws" {
   # Configuration options
 }
+
 #Create Resource randon s3 name
 # htps://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string
 resource "random_string" "bucket_name" {
