@@ -12,12 +12,19 @@ terraform {
       source = "hashicorp/aws"
       version = "5.17.0"
     }
+    random = {
+      source = "hashicorp/random"
+      version = "3.5.1"
+    }
   }
 }
-
+provider "random" {
+  # Configuration options
+}
 provider "aws" {
   # Configuration options
 }
+
 #Create Resource randon s3 name
 # htps://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string
 resource "random_string" "bucket_name" {
