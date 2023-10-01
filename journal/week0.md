@@ -7,7 +7,8 @@
   - [How to check the OS version in Linux](#how-to-check-the-os-version-in-linux)
   - [Change file permissions in Linux](#change-file-permissions-in-linux)
   - [Gitpod Lifecycle (Before,Init,Command)](#gitpod-lifecycle-beforeinitcommand)F
-  - [Working with ENV VARS](#working-with-env-vars)
+
+ - [Working with ENV VARS](#working-with-env-vars)
     - [Setting and Unsetting Env Vars](#setting-and-unsetting-env-vars)
     - [Printing Env Vars](#printing-env-vars)
     - [Scoping of Env Vars](#scoping-of-env-vars)
@@ -259,3 +260,6 @@ step 3: To check the bash script run it in the terminal but **📝do not forget 
 step 4 : `chmod u+x set_tf_alias`
 
 step 5 : after changing permission run the file in the terminal. :tada: your tf alias is now set!!
+
+
+
