@@ -7,7 +7,8 @@
   - [How to check the OS version in Linux](#how-to-check-the-os-version-in-linux)
   - [Change file permissions in Linux](#change-file-permissions-in-linux)
   - [Gitpod Lifecycle (Before,Init,Command)](#gitpod-lifecycle-beforeinitcommand)F
-  - [Working ENV VARS](#working-env-vars)
+
+ - [Working with ENV VARS](#working-with-env-vars)
     - [Setting and Unsetting Env Vars](#setting-and-unsetting-env-vars)
     - [Printing Env Vars](#printing-env-vars)
     - [Scoping of Env Vars](#scoping-of-env-vars)
@@ -72,7 +73,6 @@ drwxr-xr-x 2 gitpod gitpod   38 Sep 20 20:40 bin
 ``````
 For further reference click here : [How to change directory permissions in Linux with chmod](https://www.pluralsight.com/blog/it-ops/linux-file-permissions)
 
-3-refactor-terraform-cli
 This is handy for calculating chmod:
 [Chmod Calculator](https://chmod-calculator.com/)
 
@@ -82,7 +82,7 @@ We need to be careful when using the init because it will not rerun if we restar
 
 [gitpod Lifecycle](https://www.gitpod.io/docs/configure/workspaces/tasks)
 
-## Working ENV VARS ##
+## Working with ENV VARS ##
 
 We can list out all **Environment Variables** using the `env` command.
 
@@ -260,4 +260,6 @@ step 3: To check the bash script run it in the terminal but **📝do not forget 
 step 4 : `chmod u+x set_tf_alias`
 
 step 5 : after changing permission run the file in the terminal. :tada: your tf alias is now set!!
+
+
 
