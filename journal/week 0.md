@@ -2,7 +2,6 @@
 
 ## Table of Contents
 - [Terraform Beginner Bootcamp 2023- Week 0](#terraform-beginner-bootcamp-2023--week-0)
-  - [Table of Content](#table-of-content)
   - [Semantic Versioning](#semantic-versioning)
   - [Refactor terraform cli](#refactor-terraform-cli)
   - [How to check the OS version in Linux](#how-to-check-the-os-version-in-linux)
