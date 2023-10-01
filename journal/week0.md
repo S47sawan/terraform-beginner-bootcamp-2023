@@ -6,9 +6,9 @@
   - [Refactor terraform cli](#refactor-terraform-cli)
   - [How to check the OS version in Linux](#how-to-check-the-os-version-in-linux)
   - [Change file permissions in Linux](#change-file-permissions-in-linux)
-  - [Github Lifecycle (Before,Init,Command)](#github-lifecycle-beforeinitcommand)
-  - [Working ENV VARS](#working-env-vars)
-    - [SETTING AND UNSETTING Env Vars](#setting-and-unsetting-env-vars)
+  - [Gitpod Lifecycle (Before,Init,Command)](#gitpod-lifecycle-beforeinitcommand)F
+  - [Working with ENV VARS](#working-with-env-vars)
+    - [Setting and Unsetting Env Vars](#setting-and-unsetting-env-vars)
     - [Printing Env Vars](#printing-env-vars)
     - [Scoping of Env Vars](#scoping-of-env-vars)
     - [Persisting Env Vars in Gitpod](#persisting-env-vars-in-gitpod)
@@ -72,23 +72,22 @@ drwxr-xr-x 2 gitpod gitpod   38 Sep 20 20:40 bin
 ``````
 For further reference click here : [How to change directory permissions in Linux with chmod](https://www.pluralsight.com/blog/it-ops/linux-file-permissions)
 
-3-refactor-terraform-cli
 This is handy for calculating chmod:
 [Chmod Calculator](https://chmod-calculator.com/)
 
-## Github Lifecycle (Before,Init,Command) ##
+## gitpod Lifecycle (Before,Init,Command) ##
 
 We need to be careful when using the init because it will not rerun if we restart an existing workspace.
 
-https://www.gitpod.io/docs/configure/workspaces/tasks
+[gitpod Lifecycle](https://www.gitpod.io/docs/configure/workspaces/tasks)
 
-## Working ENV VARS ##
+## Working with ENV VARS ##
 
-We can list out all **Environment** Variables using the `env` command.
+We can list out all **Environment Variables** using the `env` command.
 
 We can filter specific env vars using grep eg `env | grep AWS_`
 
-### SETTING AND UNSETTING Env Vars ###
+### Setting and Unsetting Env Vars ###
  
 - Set ENV VARS in the terminal using `export HELLO= ='WORLD`
 - Unset ENV VARS in the terminal using `unset HELLO`
@@ -113,9 +112,9 @@ We can print an env var using echo eg `echo $HELLO`
 
 ### Scoping of Env Vars ###
 
-When you open up new bash terminals in VSCode it will not be aware of env vars that you have set in another windoe.
+When you open up new bash terminals in VSCode it will not be aware of env vars that you have set in another window.
 
-If you want Env Vars to persist across all future bash terminals that are open you need to set env vars in hyour bash profile. eg. `bash_profile`
+If you want Env Vars to persist across all future bash terminals that are open you need to set env vars in your bash profile. eg. `bash_profile`
 
 ### Persisting Env Vars in Gitpod ###
 We can _persist env vars into gitpod_ by storing them in ***Gitpod Secrets Storage***
@@ -260,4 +259,3 @@ step 3: To check the bash script run it in the terminal but **📝do not forget 
 step 4 : `chmod u+x set_tf_alias`
 
 step 5 : after changing permission run the file in the terminal. :tada: your tf alias is now set!!
-
