@@ -73,10 +73,9 @@ In terraform cloud we can set two types of variables:
 
 #### TF_VAR_
 
-  - Creating local environment variables prefixed with `TF_VAR_`.
+Creating local environment variables prefixed with `TF_VAR_`.
     
-    For example, if you declare a variable called replicas in your 
-    configuration, you could create a local environment variable called `TF_VAR_replicas` and set it to a particular value
+For example, if you declare a variable called replicas in your configuration, you could create a local environment variable called `TF_VAR_replicas` and set it to a particular value
 
 ### Loading variables from .tfvars file.
 
