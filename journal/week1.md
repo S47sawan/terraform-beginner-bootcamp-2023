@@ -42,17 +42,16 @@ In terraform cloud we can set two types of variables:
  You can set run-specific Terraform variable values by using:
   
 #### -var flag ####
-  
-    ```bash
-        terraform apply -var="key=value" 
-    ```
+````bash
+terraform apply -var="key=value"
+````
+
     example
 
-    ```bash
-        terraform apply -var="image_id=ami-abc123"
-        terraform apply -var='image_id_list=["ami-abc123","ami-def456"]' -var="instance_type=t2.micro"
-        terraform apply -var='image_id_map={"us-east-1":"ami-abc123","us-east-2":"ami-def456"}'
-    ```
+````bash
+terraform apply -var="image_id=ami-abc123"
+ ````
+  
 
 #### -var-file flag ####
 
@@ -62,14 +61,13 @@ In terraform cloud we can set two types of variables:
 
       2. **"testing.tfvars":** This part of the flag specifies the path to the external variable file. In this example, "testing.tfvars" is the name of the file that contains the variable values. The file should be located in the same directory as your Terraform configuration files unless you specify an absolute path.
 
-      Here's an example of how you might use the `-var-file` flag in a Terraform command:
+    Here's an example of how you might use the `-var-file` flag in a Terraform command:
 
-      ```bash
-      terraform apply -var-file="testing.tfvars"
-      ```
+````bash
+    terraform apply -var-file="testing.tfvars"
+````
 
-      In this example, when you run the `terraform apply` command, Terraform will read the variable values from the "testing. 
-      tfvars" file and use them to override any corresponding variables defined in your Terraform configuration files. This is particularly useful for separating configuration values, such as API keys or secret credentials, from the main configuration to enhance security and maintainability.
+    In this example, when you run the `terraform apply` command, Terraform will read the variable values from the "testing.tfvars" file and use them to override any corresponding variables defined in your Terraform configuration files. This is particularly useful for separating configuration values, such as API keys or secret credentials, from the main configuration to enhance security and maintainability.
 
 #### TF_VAR_
 
