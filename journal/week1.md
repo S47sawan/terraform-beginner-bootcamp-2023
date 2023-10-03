@@ -107,4 +107,68 @@ Terraform loads variables in the following order, with later sources taking prec
  - The terraform.tfvars.json file, if present.
  - Any *.auto.tfvars or *.auto.tfvars.json files, 
    processed in lexical order of their filenames.
- - Any -var and -var-file options on the command line, in the order they are provided. (This includes variables set by a Terraform Cloud workspace.)
+ - Any -var and -var-file options on the command line, in the order they are provided. (This includes variables set by a  
+    Terraform Cloud workspace.)
+
+## Dealing with Configuration Drift
+
+### [Fixing Missing Resources with Terraform Import](https://developer.hashicorp.com/terraform/cli/import)
+    
+🪣 [Importing AWS s3](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket)
+
+ Terraform state file compares the current state with the desired state. Should it detect that a resource exists in the aws console but not in the state file, it will throw an error.
+
+  ✅ To correct this drift, **import** the missing resource into the state file.
+
+````bash
+   terraform import aws_s3_bucket.bucket bucket-name
+````
+  🗒️ Before importing a resource into state file, the code block for the resource **must exist** in terraform.
+
+### Fix Manual Configuration
+
+This situation arises when a resource is manually deleted in the AWS Console. 
+
+In case the resource exists in the state file but not in AWS Console (real world)
+
+In the example below `terraform plan ` was run in the terminal.
+
+Terraform automatically detected a drift form the current state, hence it went ahead and planned the deployment of s3 bucket in the AWS console.
+
+🔴 is used to indicate terraform drift detection and create.
+
+
+
+````bash
+Terraform v1.5.7
+on linux_amd64
+Initializing plugins and modules...
+aws_s3_bucket.website_bucket: Refreshing state... [id=d00fwzo6nqdah7l7w5cs389wqlwi9qmc]
+aws_s3_bucket.website_bucket: Drift detected (delete) 🔴
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following
+symbols:
+  + create 🔴
+
+Terraform will perform the following actions:
+
+  # aws_s3_bucket.website_bucket will be created
+  + resource "aws_s3_bucket" "website_bucket" {
+      + acceleration_status         = (known after apply)
+      + acl                         = (known after apply)
+      + arn                         = (known after apply)
+      + bucket                      = "d00fwzo6nqdah7l7w5cs389wqlwi9qmc"
+      + bucket_domain_name          = (known after apply)
+      + bucket_prefix               = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags                        = {
+          + "UserUUID" = "var.user_uuid"
+
+````
