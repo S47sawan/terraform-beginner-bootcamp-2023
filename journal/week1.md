@@ -172,3 +172,41 @@ Terraform will perform the following actions:
           + "UserUUID" = "var.user_uuid"
 
 ````
+
+## [Terraform Modules](https://developer.hashicorp.com/terraform/language/modules)
+
+A module consists of a collection of .tf and/or .tf.json files kept together in a directory.
+
+Modules are called from within other modules using [module blocks](https://developer.hashicorp.com/terraform/language/modules/syntax).
+
+
+### [Module Sources](https://developer.hashicorp.com/terraform/language/modules/sources)
+
+Modules can be imported using the source from various places:
+
+- Terraform Registry
+- GitHub
+- s3 bucket
+
+for this project the example below is a module block that shows the local path as the source.
+
+````tf
+  module "terrahouse_aws" {
+    source = "./modules/terrhouse_aws"
+  }
+````
+
+### Passing Input Variables
+We can pass input variables to our module.
+
+The module has to declare the terraform variables in its own varaiabes.tf
+
+````tf
+  module "terrahouse_aws" {
+    source = "./modules/terrhouse_aws"
+    user_uuid = var.user_uuid
+    bucket_name = var.bucket_name
+  }
+````
+ 
+
