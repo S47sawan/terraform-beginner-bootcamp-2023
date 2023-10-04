@@ -208,5 +208,49 @@ The module has to declare the terraform variables in its own varaiabes.tf
     bucket_name = var.bucket_name
   }
 ````
- 
+## Considerations when using CHATGPT to write Terraform
 
+:warning: Large Language Models (LLMs) like ChatGPT might not have access to the most up-to-date Terraform documentation or information, potentially leading to the generation of outdated examples that could no longer be compatible, often impacting providers.
+
+## Working with files in terraform
+
+### [Fileexists function](https://developer.hashicorp.com/terraform/language/functions/fileexists)
+
+`fileexists` determines whether a file exists at a given path.
+
+````tf
+  validation {
+    condition     = fileexists(var.error_html_filepath)
+}
+````
+### [Filemd5 Function](https://developer.hashicorp.com/terraform/language/functions/filemd5)
+
+````tf
+etag   = filemd5(var.error_html_filepath)
+````
+In Terraform syntax, `etag = filemd5(var.error_html_filepath)` is used to compute the MD5 hash (ETag) of the contents of a file specified by the variable `var.error_html_filepath`. 
+
+- `var.error_html_filepath` is a variable that holds the file path to an HTML file.
+- `filemd5()` is a built-in Terraform function used to calculate the MD5 hash of the contents of the specified file.
+- `etag` is an attribute that will be assigned the computed MD5 hash.
+
+This syntax is often used when working with AWS S3 or similar services, where the ETag is used to track changes in files for efficient uploads and updates. It allows you to automatically compute the ETag of a file, typically for use in S3 object definitions or other resource configurations where ETags are relevant.
+
+
+
+### Path Variable
+In terraform there is a special variable called `path` that allows us to reference local paths:
+ - path.module = get the path for the current module
+ - path.root = get the path for the root module
+  
+[Special Path Variable](https://developer.hashicorp.com/terraform/language/expressions/references)
+
+````tf
+resource "aws_s3_object" "index-html" {
+  bucket = aws_s3_bucket.website_bucket.bucket
+  key    = "index.html"
+  source ="${path.root}/public/index.html"
+  
+  etag   = filemd5(var.index_html_filepath)
+}
+````
