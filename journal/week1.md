@@ -1,7 +1,30 @@
 
 # Terraform Beginner Bootcamp 2023 - Week 1 🏗️
 
+## Fixing Tags 🛠️
 
+[How To Delete Local and Remote Tags on Git](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/)
+
+To delete local tag do:
+
+````sh
+ $ git tag -d <tag name>
+
+````
+To delete remote tag
+
+````sh
+ $ git push --delete origin tagname
+
+````
+Checkout the commit that you want to retag. Grab the SHA from your github history.
+
+````sh
+git checkout <sha>
+git tag <tag version>
+git push --tags
+git checkout main
+````
 ## [Root Module structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
 
 A standard module structure refers to the organization and layout of files and directories within a module as shown below:
@@ -43,13 +66,13 @@ In terraform cloud we can set two types of variables:
   
 #### -var flag ####
 ````bash
-terraform apply -var="key=value"
+$ terraform apply -var="key=value"
 ````
 
     example
 
 ````bash
-terraform apply -var="image_id=ami-abc123"
+$ terraform apply -var="image_id=ami-abc123"
  ````
   
 
@@ -64,7 +87,7 @@ terraform apply -var="image_id=ami-abc123"
     Here's an example of how you might use the `-var-file` flag in a Terraform command:
 
 ````bash
-    terraform apply -var-file="testing.tfvars"
+  $ terraform apply -var-file="testing.tfvars"
 ````
 
     In this example, when you run the `terraform apply` command, Terraform will read the variable values from the "testing.tfvars" file and use them to override any corresponding variables defined in your Terraform configuration files. This is particularly useful for separating configuration values, such as API keys or secret credentials, from the main configuration to enhance security and maintainability.
@@ -121,7 +144,7 @@ Terraform loads variables in the following order, with later sources taking prec
   ✅ To correct this drift, **import** the missing resource into the state file.
 
 ````bash
-   terraform import aws_s3_bucket.bucket bucket-name
+   $ terraform import aws_s3_bucket.bucket bucket-name
 ````
   🗒️ Before importing a resource into state file, the code block for the resource **must exist** in terraform.
 
