@@ -277,3 +277,46 @@ resource "aws_s3_object" "index-html" {
   etag   = filemd5(var.index_html_filepath)
 }
 ````
+
+## CDN - [Origin Access Control](https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-cloudfront-introduces-origin-access-control-oac/)
+
+ A concept related to content delivery networks (CDNs) and is primarily associated with controlling and securing access to the origin server or the original source of content for a website or web application.
+
+## [Terraform Data Sources](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)
+
+Data sources are a powerful way to fetch information dynamically from external sources and use that data to make your infrastructure configurations more flexible and maintainable.
+
+````bash
+    data "aws_caller_identity" "current" {}
+
+````
+## [Terraform locals](https://developer.hashicorp.com/terraform/language/values/locals)
+
+ A local value can only be accessed in expressions within the module where it was declared.
+
+ Local values are created by a locals block (plural), but you reference them as attributes on an object named local (singular). :note: Make sure to *leave off the "s" when referencing a local* value.
+
+````tf
+locals {
+  s3_origin_id = "MyS3Origin"
+}
+
+resource "aws_cloudfront_distribution" "s3_distribution" {
+   origin_id                = local.s3_origin_id
+}
+````
+
+
+## 💡Things to note about this project.
+
+:arrow_forward: Always add `etag   = filemd5(var.error_html_filepath)` to the s3 upload code block for contents to be updated locally as well as s3.
+
+:arrow_forward: Cloudfront caches files , so if you have made changes and you need to flush out the cache memory go to
+distributions -> Invalidations -> create invalidation -> in the add object path add this  `/*`  and hit create invalidation button.
+This will clear the cache and the current changes will be displayed.
+
+
+:arrow_forward: *Origin Access Control* (OAC) has been enabled on the CDN. The s3 acts as the origin, hence we do not need to uncheck the BPA on the s3. Rather an s3 policy is used for the cdn to get object from the s3 and delivery the content to end user.
+
+
+
