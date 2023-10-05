@@ -311,12 +311,12 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
 :arrow_forward: Always add `etag   = filemd5(var.error_html_filepath)` to the s3 upload code block for contents to be updated locally as well as s3.
 
-:arrow_forward: Cloudfront caches files , so if you have made changes and you need to flush out the cache memory go to
-distributions -> Invalidations -> create invalidation -> in the add object path add this  `/*`  and hit create invalidation button.
-This will clear the cache and the current changes will be displayed.
-
-
 :arrow_forward: *Origin Access Control* (OAC) has been enabled on the CDN. The s3 acts as the origin, hence we do not need to uncheck the BPA on the s3. Rather an s3 policy is used for the cdn to get object from the s3 and delivery the content to end user.
 
 
+## [The lifecycle Meta-Argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle)
+
+The lifecycle allows when a resource gets updated or created.
+
+tutorial on [Manage resource Lifecycle](https://developer.hashicorp.com/terraform/tutorials/state/resource-lifecycle?utm_offer=ARTICLE_PAGE)
 
