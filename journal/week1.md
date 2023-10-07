@@ -320,3 +320,17 @@ The lifecycle allows when a resource gets updated or created.
 
 tutorial on [Manage resource Lifecycle](https://developer.hashicorp.com/terraform/tutorials/state/resource-lifecycle?utm_offer=ARTICLE_PAGE)
 
+## [Terraform Provisioner](https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax)
+
+Terraform provisioners add a considerable amount of complexity and uncertainy to terraform usage.
+
+They are not recommanded for use by Hashicorp because Configuration management tools such as Ansible are a better fir, but the fucntinality exists.
+
+### [Local-exec](https://developer.hashicorp.com/terraform/language/resources/provisioners/local-exec)
+
+The local-exec provisioner invokes a local executable after a resource is created. This invokes a process on the machine running Terraform, not on the resource.
+
+### [Remote-exec]()
+
+The remote-exec provisioner invokes a script on a remote resource after it is created. This can be used to run a configuration management tool, bootstrap into a cluster, etc.
+remote-exec provisioner interact with remote servers over SSH or WinRM.
