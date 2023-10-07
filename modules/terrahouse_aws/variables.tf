@@ -10,7 +10,6 @@ variable "user_uuid" {
     error_message = "Invalid UUID format. The UUID must be in the format 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'."
   }
 }
-
 variable "bucket_name" {
   description = "The name of the S3 bucket"
   type        = string
