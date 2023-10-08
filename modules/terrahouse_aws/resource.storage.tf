@@ -35,6 +35,19 @@ resource "aws_s3_object" "index-html" {
     ignore_changes = [etag]
   }
 }
+
+resource "aws_s3_object" "upload_assets" {
+  for_each = fileset(var.assets_path,"*.{jpg}")
+  bucket = aws_s3_bucket.website_bucket.bucket
+  key    = "assets/${each.key}"
+  source = "${var.assets_path}/${each.key}"
+  etag = filemd5("${var.assets_path}/${each.key}")
+  lifecycle {
+    replace_triggered_by = [terraform_data.content_version.output]
+    ignore_changes = [etag]
+  }
+}
+
 #Upload error.html to s3 bucket
 #https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object
 resource "aws_s3_object" "error-html" {
