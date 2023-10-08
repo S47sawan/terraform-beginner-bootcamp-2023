@@ -334,3 +334,10 @@ The local-exec provisioner invokes a local executable after a resource is create
 
 The remote-exec provisioner invokes a script on a remote resource after it is created. This can be used to run a configuration management tool, bootstrap into a cluster, etc.
 remote-exec provisioner interact with remote servers over SSH or WinRM.
+
+## [For Each Meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
+
+for_each is a meta-argument defined by the Terraform language. It can be used with modules and with every resource type.
+
+The for_each meta-argument accepts a map or a set of strings, and creates an instance for each item in that map or set.
+
