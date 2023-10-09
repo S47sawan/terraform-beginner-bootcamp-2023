@@ -1,12 +1,13 @@
 #backend terraform cloud
-# terraform {
-#   cloud {
-#     organization = "cloudgirl"
+terraform {
+  cloud {
+    organization = "cloudgirl"
 
-#     workspaces {
-#       name = "terra-house-1"
-#     }
-#   }
+    workspaces {
+      name = "terraform-cloud"
+    }
+  }
+}
 
 module "terrahouse_aws" {
   source              = "./modules/terrahouse_aws"
