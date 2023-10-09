@@ -341,3 +341,6 @@ for_each is a meta-argument defined by the Terraform language. It can be used wi
 
 The for_each meta-argument accepts a map or a set of strings, and creates an instance for each item in that map or set.
 
+## Detailed diagram for week 1 with provisioner and functions used.
+
+![week1 detailed diagram](<Screenshot 2023-10-09 090236.png>)
