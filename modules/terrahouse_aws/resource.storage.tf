@@ -6,7 +6,7 @@ resource "aws_s3_bucket" "website_bucket" {
 
   tags = {
     UserUUID = "var.user_uuid"
-    Hello = "Pluto"
+    Hello = "High way to heaven"
   }
 }
 # Web hosting configurations for S3 bucket
