@@ -23,24 +23,24 @@ resource "aws_s3_bucket_website_configuration" "configuration_bucket" {
 }
 #Upload index.html to s3 bucket
 #https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object
-# resource "aws_s3_object" "index-html" {
-#   bucket = aws_s3_bucket.website_bucket.bucket
-#   key    = "index.html"
-#   source = "${path.root}${var.index_html_filepath}"
-#   content_type = "text/html"
+resource "aws_s3_object" "index-html" {
+  bucket = aws_s3_bucket.website_bucket.bucket
+  key    = "index.html"
+  source = "${path.root}${var.index_html_filepath}"
+  content_type = "text/html"
   
-#   etag   = filemd5("${path.root}${var.index_html_filepath}")
-# }
+  etag   = filemd5("${path.root}${var.index_html_filepath}")
+}
 #Upload error.html to s3 bucket
 #https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object
-# resource "aws_s3_object" "error-html" {
-#   bucket = aws_s3_bucket.website_bucket.bucket
-#   key    = "error.html"
-#   source = "${path.root}${var.index_html_filepath}"
-#   content_type = "text/html"
+resource "aws_s3_object" "error-html" {
+  bucket = aws_s3_bucket.website_bucket.bucket
+  key    = "error.html"
+  source = "${path.root}${var.index_html_filepath}"
+  content_type = "text/html"
 
-#   etag   = filemd5("${path.root}${var.index_html_filepath}")
-# }
+  etag   = filemd5("${path.root}${var.index_html_filepath}")
+}
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
   bucket = aws_s3_bucket.website_bucket.bucket
