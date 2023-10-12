@@ -6,6 +6,7 @@ tasks:
       bundle install
       bundle exec ruby server.rb 
   - name: terraform
+     TF_LOG:DEBUG
     before: |
       cd $PROJECT_ROOT
       source ./bin/install_terraform_cli
