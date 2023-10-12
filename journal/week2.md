@@ -294,3 +294,38 @@ TerraTownsMockServer.run!
 
 This code creates a simple mock server for managing "homes" data, allowing clients to perform CRUD operations on these resources. The server validates input data and responds with appropriate status codes and JSON responses. It's intended for testing and development purposes and doesn't persist data beyond the runtime of the server.
 
+## [Creating a Terraform provider](https://www.hashicorp.com/resources/creating-terraform-provider-for-anything)
+
+### main.go file
+
+The **main.go** file is typically used as the entry point of the application. 
+
+It's where the Go program starts executing. In the context of creating a Terraform provider using Go, main.go may not be directly related to your provider's logic but serves as a way to execute or run your provider.
+
+
+
+### .terraformrc file
+
+The `.terraformrc` file is used by Terraform to configure various aspects of Terraform behavior and to set global settings for providers. This file, when present in the user's home directory, can influence how Terraform behaves, including interactions with providers. It's not directly related to the development of a custom Terraform provider in Go; instead, it's a user-specific configuration file.
+
+Here are some key aspects of the `.terraformrc` file and what it does:
+
+1. **Provider Configuration**: You can use the `.terraformrc` file to configure provider settings, such as credentials, access keys, and other provider-specific configuration options. This is especially useful if you want to set provider configurations globally across all Terraform projects.
+
+2. **Authentication**: You can store authentication credentials (e.g., API keys or access tokens) for different providers, and Terraform will automatically use these credentials when interacting with the specified providers. This can make it more convenient for users, as they don't need to specify these credentials in every Terraform project.
+
+3. **Alias Configuration**: You can define provider aliases in the `.terraformrc` file, allowing you to use different provider configurations for the same provider within a single project. This can be useful when dealing with multiple environments (e.g., development, staging, and production) that require different configurations for the same provider.
+
+4. **Plugin Cache Configuration**: The `.terraformrc` file allows you to configure settings related to Terraform's plugin caching, including the cache directory and cache lifetime.
+
+### CRUD
+
+Terraform Provider resources utilize CRUD.
+
+CRUD is as acronym for  Create, Read, Update, Delete 
+
+[More on CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+
+
+
+
