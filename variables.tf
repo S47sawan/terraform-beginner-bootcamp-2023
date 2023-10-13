@@ -1,7 +1,7 @@
 #----------------------------------------------------------------------------------------------------------------------------
 # Declare Variables
 #----------------------------------------------------------------------------------------------------------------------------
-variable "user_uuid" {
+variable "teacherseat_user_uuid" {
   description = "User UUID"
   type        = string
 }
@@ -23,5 +23,13 @@ variable "content_version" {
 }
 variable "assets_path" {
   description = "Path to assets folder"
-  type = string
+  type        = string
+}
+variable "terratowns_endpoint" {
+  description = "point of access to terratowns"
+  type        = string
+}
+variable "terratowns_access_token" {
+  description = "token to access terratowns "
+  type        = string
 }
