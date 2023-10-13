@@ -15,6 +15,7 @@ terraform {
 #       name = "terra-house-1"
 #     }
 #   }
+
 provider "terratowns" {
   endpoint = "http://localhost:4567/api"
   user_uuid="e328f4ab-b99f-421c-84c9-4ccea042c7d1" 
@@ -30,3 +31,16 @@ provider "terratowns" {
 #   content_version = var.content_version
 #   assets_path = var.assets_path
 # }
+
+resource "terratowns_home" "home" {
+  name = "Lets Get Cooking! :pot_of_food:" 
+  description = <<DESCRIPTION
+  Are you passionate about the art of cooking or simply looking to whip up a quick and delicious meal? 
+  You've come to the right place! 
+  "Let's Get Cooking" is your virtual kitchen and a haven for food lovers from all walks of life .
+DESCRIPTION
+  #domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = "3fdq3gz.cloudfront.net"
+  town = "cooker-cove"
+  content_version = 1
+}
