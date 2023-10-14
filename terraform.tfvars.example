@@ -1,9 +1,7 @@
 #-------------------------------------------------------------------------------------------------------------------------
 #variable input
 #-------------------------------------------------------------------------------------------------------------------------
-bucket_name = "d00fwzo6nqdah7l7w5cs389wqlwi9qmc"
-index_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/index.html"
-error_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/error.html"
+pacman_public_path="/workspace/terraform-beginner-bootcamp-2023/public/pacman"
+cinnamon_public_path="/workspace/terraform-beginner-bootcamp-2023/public/cinnamon"
 content_version=2
-assets_path = "/workspace/terraform-beginner-bootcamp-2023/public/assets/"
 terratowns_endpoint = "https://terratowns.cloud/api"

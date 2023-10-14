@@ -1,10 +1,4 @@
 tasks:
-  - name: sinatra
-    before : | 
-      cd $PROJECT_ROOT
-      cd terratowns_mock_server
-      bundle install
-      bundle exec ruby server.rb 
   - name: terraform
      TF_LOG:DEBUG
     before: |
@@ -13,6 +7,14 @@ tasks:
       source ./bin/generate_tfrc_credentials
       source ./bin/set_tf_alias
       cp $PROJECT_ROOT/terraform.tfvars.example $PROJECT_ROOT/terraform.tfvars
+      source ./bin/build_provider
+  - name: sinatra
+    before : | 
+      cd $PROJECT_ROOT
+      cd terratowns_mock_server
+      bundle install
+      bundle exec ruby server.rb 
+  
   - name: aws-cli
     env:
       AWS_CLI_AUTO_PROMPT: on-partial
