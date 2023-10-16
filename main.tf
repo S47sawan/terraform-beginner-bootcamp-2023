@@ -5,16 +5,15 @@ terraform {
       version = "1.0.0"
     }
   }
-}
 #backend terraform cloud
-# terraform {
-#   cloud {
-#     organization = "cloudgirl"
+  cloud {
+    organization = "cloudgirl"
 
-#     workspaces {
-#       name = "terra-house-1"
-#     }
-#   }
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
+}
 
 provider "terratowns" {
   endpoint  = var.terratowns_endpoint
@@ -22,24 +21,39 @@ provider "terratowns" {
   token     = var.terratowns_access_token
 }
 
-module "terrahouse_aws" {
-  source              = "./modules/terrahouse_aws"
-  user_uuid           = var.teacherseat_user_uuid
-  bucket_name         = var.bucket_name
-  index_html_filepath = var.index_html_filepath
-  error_html_filepath = var.error_html_filepath
-  content_version = var.content_version
-  assets_path = var.assets_path
+module "home_pacman_hosting" {
+  source          = "./modules/terratowns_aws"
+  user_uuid       = var.teacherseat_user_uuid
+  public_path     = var.pacman.public_path
+  content_version = var.pacman.content_version
 }
 
-resource "terratowns_home" "home" {
-  name            = "Lets Get Cooking!"
+resource "terratowns_home" "home_pacman" {
+  name            = "Lets Play Pac-Man!"
   description     = <<DESCRIPTION
-  Are you passionate about the art of cooking or simply looking to whip up a quick and delicious meal? 
-  You've come to the right place! 
-  "Let's Get Cooking" is your virtual kitchen and a haven for food lovers from all walks of life .
+  "Pac-Man" is a classic arcade game that was first released in 1980 by Namco (formerly known as Midway). 
+   It was created by Toru Iwatani and quickly became one of the most iconic and beloved video games in history. 
+  The game's objective is simple: guide the character "Pac-Man" through a maze, eating all the dots while avoiding ghosts.
 DESCRIPTION
-  domain_name     = module.terrahouse_aws.cloudfront_url
+  domain_name     = module.home_pacman_hosting.domain_name
   town            = "missingo"
-  content_version = 1
+  content_version = var.pacman.content_version
+}
+
+module "home_cook_hosting" {
+  public_path     = var.cook.public_path
+  source          = "./modules/terratowns_aws"
+  user_uuid       = var.teacherseat_user_uuid
+  content_version = var.cook.content_version
+}
+
+resource "terratowns_home" "home_cook" {
+  name            = "Scrumdiddlyumptious Cinnamon Buns!"
+  description     = <<DESCRIPTION
+   As the trees start to shed  their leaves and the days grow colder and shorter why not
+   lift your spirits with some home made delicious cinnamon buns! Try this recipe today!
+DESCRIPTION
+  domain_name     = module.home_cook_hosting.domain_name
+  town            = "missingo"
+  content_version = var.cook.content_version
 }

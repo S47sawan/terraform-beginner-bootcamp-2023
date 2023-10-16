@@ -5,25 +5,17 @@ variable "teacherseat_user_uuid" {
   description = "User UUID"
   type        = string
 }
-variable "bucket_name" {
-  description = "The name of the S3 bucket"
-  type        = string
+variable "pacman" {
+  type = object({
+    public_path     = string
+    content_version = number
+  })
 }
-variable "index_html_filepath" {
-  description = "The file path for index.html"
-  type        = string
-}
-variable "error_html_filepath" {
-  description = "The file path for index.html"
-  type        = string
-}
-variable "content_version" {
-  description = "Version number for content"
-  type        = number
-}
-variable "assets_path" {
-  description = "Path to assets folder"
-  type        = string
+variable "cook" {
+  type        = object({
+  public_path = string
+  content_version = number
+  })
 }
 variable "terratowns_endpoint" {
   description = "point of access to terratowns"
