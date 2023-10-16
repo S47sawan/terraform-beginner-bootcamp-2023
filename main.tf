@@ -42,7 +42,7 @@ DESCRIPTION
 
 module "home_cook_hosting" {
   public_path     = var.cook.public_path
-  source          = "./modules/terrahome_aws"
+  source          = "./modules/terratowns_aws"
   user_uuid       = var.teacherseat_user_uuid
   content_version = var.cook.content_version
 }
