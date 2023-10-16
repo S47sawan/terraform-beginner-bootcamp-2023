@@ -1,7 +1,12 @@
 #-------------------------------------------------------------------------------------------------------------------------
 #variable input
 #-------------------------------------------------------------------------------------------------------------------------
-pacman_public_path="/workspace/terraform-beginner-bootcamp-2023/public/pacman"
-cinnamon_public_path="/workspace/terraform-beginner-bootcamp-2023/public/cinnamon"
-content_version=2
+pacman={
+ public_path = "/workspace/terraform-beginner-bootcamp-2023/public/pacman"
+ content_version = 2
+}
+cook={
+    public_path = "/workspace/terraform-beginner-bootcamp-2023/public/cook"
+    content_version=1
+}
 terratowns_endpoint = "https://terratowns.cloud/api"

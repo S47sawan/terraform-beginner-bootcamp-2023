@@ -2,7 +2,7 @@
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
 # https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html
 resource "aws_s3_bucket" "website_bucket" {
-  bucket = aws_s3_bucket.website_bucket.bucket
+  # bucket = aws_s3_bucket.website_bucket.bucket
 
   tags = {
     UserUUID = "var.user_uuid"
@@ -37,7 +37,7 @@ resource "aws_s3_object" "index-html" {
 }
 
 resource "aws_s3_object" "upload_assets" {
-  for_each = fileset(var.public_path*"/assets","*.{jpg,png,gif}")
+  for_each = fileset("${var.public_path}/assets","*.{jpg,png,gif}")
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "assets/${each.key}"
   source = "${var.public_path}/assets/${each.key}"

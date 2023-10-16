@@ -36,11 +36,11 @@ variable "content_version" {
   }
   default     = 1 # You can set a default value if needed.
 }
-variable "pacman_public_path" {
-  description = "The file path for the public directory"
-  type        = string
-}
-# variable "cinnamon_public_path" {
+# variable "pacman_public_path" {
+#   description = "The file path for the public directory"
+#   type        = string
+# }
+# variable "cook_public_path" {
 #   description = "The file path for the public directory"
 #   type        = string
 # }

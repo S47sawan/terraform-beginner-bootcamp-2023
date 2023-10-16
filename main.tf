@@ -5,9 +5,7 @@ terraform {
       version = "1.0.0"
     }
   }
-}
 #backend terraform cloud
-terraform {
   cloud {
     organization = "cloudgirl"
 
@@ -24,13 +22,13 @@ provider "terratowns" {
 }
 
 module "home_pacman_hosting" {
-  source          = "./modules/terrahome_aws"
+  source          = "./modules/terratowns_aws"
   user_uuid       = var.teacherseat_user_uuid
-  content_version = var.content_version
-  public_path     = var.pacman_public_path
+  public_path     = var.pacman.public_path
+  content_version = var.pacman.content_version
 }
 
-resource "terrahouse_aws" "home_pacman" {
+resource "terratowns_home" "home_pacman" {
   name            = "Lets Play Pac-Man!"
   description     = <<DESCRIPTION
   "Pac-Man" is a classic arcade game that was first released in 1980 by Namco (formerly known as Midway). 
@@ -39,23 +37,23 @@ resource "terrahouse_aws" "home_pacman" {
 DESCRIPTION
   domain_name     = module.home_pacman_hosting.domain_name
   town            = "missingo"
-  content_version = 1
+  content_version = var.pacman.content_version
 }
 
-# module "home_cinnamon_hosting" {
-#   public_path     = var.cinnamon_public_path
-#   source          = "./modules/terrahome_aws"
-#   user_uuid       = var.teacherseat_user_uuid
-#   content_version = var.content_version
-# }
+module "home_cook_hosting" {
+  public_path     = var.cook.public_path
+  source          = "./modules/terrahome_aws"
+  user_uuid       = var.teacherseat_user_uuid
+  content_version = var.cook.content_version
+}
 
-# resource "terrahouse_aws" "home_cinnamon" {
-#   name            = "Scrumdiddlyumptious Cinnamon Buns!"
-#   description     = <<DESCRIPTION
-#    As the trees start to shed  their leaves and the days grow colder and shorter why not
-#    lift your spirits with some home made delicious cinnamon buns! Try this recipe today!
-# DESCRIPTION
-#   domain_name     = module.home_cinnamon_hosting.domain_name
-#   town            = "missingo"
-#   content_version = 1
-# }
+resource "terratowns_home" "home_cook" {
+  name            = "Scrumdiddlyumptious Cinnamon Buns!"
+  description     = <<DESCRIPTION
+   As the trees start to shed  their leaves and the days grow colder and shorter why not
+   lift your spirits with some home made delicious cinnamon buns! Try this recipe today!
+DESCRIPTION
+  domain_name     = module.home_cook_hosting.domain_name
+  town            = "missingo"
+  content_version = var.cook.content_version
+}

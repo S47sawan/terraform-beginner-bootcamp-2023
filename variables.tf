@@ -5,19 +5,18 @@ variable "teacherseat_user_uuid" {
   description = "User UUID"
   type        = string
 }
-variable "pacman_public_path" {
-  description = "The file path for the public directory"
-  type        = string
+variable "pacman" {
+  type = object({
+    public_path     = string
+    content_version = number
+  })
 }
-# variable "cinnamon_public_path" {
-#   description = "The file path for the public directory"
-#   type        = string
-# }
-variable "content_version" {
-  description = "Version number for content"
-  type        = number
+variable "cook" {
+  type        = object({
+  public_path = string
+  content_version = number
+  })
 }
-
 variable "terratowns_endpoint" {
   description = "point of access to terratowns"
   type        = string

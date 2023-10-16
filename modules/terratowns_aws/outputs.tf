@@ -9,6 +9,6 @@ output "website_endpoint" {
   description = "s3 static website hosting endpoint"
   value       = aws_s3_bucket_website_configuration.configuration_bucket.website_endpoint
 }
-output "cloudfront_url" {
+output "domain_name" {
   value = aws_cloudfront_distribution.s3_distribution.domain_name
 }
